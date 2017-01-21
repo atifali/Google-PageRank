@@ -17,9 +17,9 @@ g_ij = 1 if there is a hyperlink from page j to page i, where i is the row and j
 ```Matlab
 G=
 [[0,1,1,0]
-[1,0,1,0]
-[1,1,0,0]
-[0,0,0,0]]
+ [1,0,1,0]
+ [1,1,0,0]
+ [0,0,0,0]]
 ```
 3. Let's define the importance of each page by the importance of the pages that link to it. (Hey wait, that sounds a little like recursion!). If we
 do this, we can use the connectivity matrix as a launching pad for determining the relative importance of each page in our web. Note that a
@@ -44,9 +44,9 @@ S=
 ```Matlab
 S=
 [[0,0.5,0.5,0.25];
-[0.5,0,0.5,0.25];
-[0.5,0.5,0,0.25];
-[0, 0, 0, 0.25]];
+ [0.5,0,0.5,0.25];
+ [0.5,0.5,0,0.25];
+ [0, 0, 0, 0.25]];
 ```
 7. The matrix S is now a stochastic matrix, or to be more specific, a left stochastic matrix because the columns all sum to 1. In a left stochastic matrix, the elements are all strictly between 0 and 1 and its columns all sum to 1. We're almost finished. We can also call S a probability matrix, and we will use our probability matrix to construct a transition matrix for a Markov process. This sounds much more complicated than it really is. There are two steps:
 		..1. We need to introduce the notion of a random walk. We need to 	multiply our probability matrix by a random walk probability factor.For our lab, we will designate this variable p, and set p = 0.85.
@@ -60,22 +60,18 @@ rank=
  [1];
  [1]]; 	
 ```
-9. The final 2 steps are the Markov process (aka the dynamical system aka the power method):
-		..1. Multiply the transition matrix M by our column vector (array) rank, and then multiply M by the result and then keep doing this until the and rank stops changing (result converges), e.g., M * rank = rank. In this case, we get:
-		```Matlab
-		rank=
-			[[1.2698];
-			 [1.2698]; 
-			 [1.2698];
-			 [0.1905]]; 	
-		```
-		..2. Divide each element in rank by the sum of the values in rank (scale rank so its elements sum to 1):
-		```Matlab
-		rank= 	
-		[[1.2698 / 3.999 = 0.3175];
-		 [1.2698 / 3.999 = 0.3175];
-		 [1.2698 / 3.999 = 0.3175];
-		 [0.1905 / 3.999 = 0.0476]];
-		```
+9. The final 2 steps are the Markov process (aka the dynamical system aka the power method). Multiply the transition matrix M by our column vector (array) rank, and then multiply M by the result and then keep doing this until the and rank stops changing (result converges), e.g., M * rank = rank. Divide each element in rank by the sum of the values in rank (scale rank so its elements sum to 1).
+```Matlab
+rank=
+[[1.2698];
+ [1.2698]; 
+ [1.2698];
+ [0.1905]]; 
+rank= 	
+[[1.2698 / 3.999 = 0.3175];
+ [1.2698 / 3.999 = 0.3175];
+ [1.2698 / 3.999 = 0.3175];
+ [0.1905 / 3.999 = 0.0476]];
+ ```
 And thats all there is to it! 
 (Courtesy of Prof. Awad at UBC).
