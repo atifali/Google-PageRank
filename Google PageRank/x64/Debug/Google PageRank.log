@@ -1,0 +1,5 @@
+﻿  PageRank.c
+c:\mega\atifali.tk\resources\projects\implementing the google page rank algorithm\google pagerank\google pagerank\pagerank.c(135): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\mega\atifali.tk\resources\projects\implementing the google page rank algorithm\google pagerank\google pagerank\pagerank.c(161): warning C4047: '=': 'double **' differs in levels of indirection from 'double *'
+  Google PageRank.vcxproj -> C:\MEGA\atifali.tk\Resources\Projects\Implementing the Google Page Rank Algorithm\Google PageRank\x64\Debug\Google PageRank.exe
+  Google PageRank.vcxproj -> C:\MEGA\atifali.tk\Resources\Projects\Implementing the Google Page Rank Algorithm\Google PageRank\x64\Debug\Google PageRank.pdb (Partial PDB)
